@@ -1,3 +1,0 @@
-{
-  "buildCommand": "node --openssl-legacy-provider ./node_modules/.bin/next build"
-}
