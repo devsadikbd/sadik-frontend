@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "next -p 7777",
-    "build": "node --openssl-legacy-provider ./node_modules/.bin/next build",
+    "build": "next build",
     "start": "next start -p 7777",
     "test": "NODE_ENV=test jest --watch"
   },
