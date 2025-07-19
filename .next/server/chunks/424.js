@@ -9,6 +9,7 @@ exports.modules = {
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
+  "$": function() { return /* binding */ ALL_PRODUCTS_QUERY; },
   "Z": function() { return /* binding */ Products; }
 });
 
@@ -187,6 +188,7 @@ function Products() {
     })
   });
 }
+
 
 /***/ }),
 

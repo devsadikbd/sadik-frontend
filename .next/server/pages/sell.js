@@ -97,7 +97,7 @@ function CreateProduct() {
           image: inputs.image
         },
         refetchQueries: [{
-          query: Products.ALL_PRODUCTS_QUERY
+          query: Products/* ALL_PRODUCTS_QUERY */.$
         }]
       });
       clearForm();
