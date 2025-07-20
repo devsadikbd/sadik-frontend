@@ -41,5 +41,3 @@ export default function Products() {
     </div>
   );
 }
-
-export { ALL_PRODUCTS_QUERY };
