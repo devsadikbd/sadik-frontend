@@ -1,10 +1,10 @@
 (function() {
 var exports = {};
-exports.id = 276;
-exports.ids = [276];
+exports.id = 60;
+exports.ids = [60];
 exports.modules = {
 
-/***/ 8380:
+/***/ 5768:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13,28 +13,23 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": function() { return /* binding */ SellPage; }
+  "default": function() { return /* binding */ UpdatePage; }
 });
 
 // EXTERNAL MODULE: external "react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(5282);
+// EXTERNAL MODULE: external "@apollo/client"
+var client_ = __webpack_require__(8074);
 // EXTERNAL MODULE: external "graphql-tag"
 var external_graphql_tag_ = __webpack_require__(9875);
 var external_graphql_tag_default = /*#__PURE__*/__webpack_require__.n(external_graphql_tag_);
-// EXTERNAL MODULE: external "@apollo/client"
-var client_ = __webpack_require__(8074);
-// EXTERNAL MODULE: external "next/router"
-var router_ = __webpack_require__(6731);
-var router_default = /*#__PURE__*/__webpack_require__.n(router_);
-// EXTERNAL MODULE: ./lib/useForm.js
-var useForm = __webpack_require__(8363);
 // EXTERNAL MODULE: ./components/styles/Form.js
 var Form = __webpack_require__(3804);
 // EXTERNAL MODULE: ./components/ErrorMessage.js
 var ErrorMessage = __webpack_require__(7847);
-// EXTERNAL MODULE: ./components/Products.js + 6 modules
-var Products = __webpack_require__(7900);
-;// CONCATENATED MODULE: ./components/CreateProduct.js
+// EXTERNAL MODULE: ./lib/useForm.js
+var useForm = __webpack_require__(8363);
+;// CONCATENATED MODULE: ./components/UpdateProduct.js
 
 
 
@@ -42,23 +37,26 @@ var Products = __webpack_require__(7900);
 
 
 
-
-
-const CREATE_PRODUCT_MUTATION = (external_graphql_tag_default())`
-  mutation CREATE_PRODUCT_MUTATION(
-    $name: String!
-    $description: String!
-    $price: Int!
-    $image: Upload
+const SINGLE_PRODUCT_QUERY = (external_graphql_tag_default())`
+  query SINGLE_PRODUCT_QUERY($id: ID!) {
+    Product(where: { id: $id }) {
+      id
+      name
+      description
+      price
+    }
+  }
+`;
+const UPDATE_PRODUCT_MUTATION = (external_graphql_tag_default())`
+  mutation UPDATE_PRODUCT_MUTATION(
+    $id: ID!
+    $name: String
+    $description: String
+    $price: Int
   ) {
-    createProduct(
-      data: {
-        name: $name
-        description: $description
-        price: $price
-        status: "AVAILABLE"
-        photo: { create: { image: $image, altText: $name } }
-      }
+    updateProduct(
+      id: $id
+      data: { name: $name, description: $description, price: $price }
     ) {
       id
       name
@@ -67,58 +65,65 @@ const CREATE_PRODUCT_MUTATION = (external_graphql_tag_default())`
     }
   }
 `;
-function CreateProduct() {
+function UpdateProduct({
+  id
+}) {
+  const {
+    data,
+    loading,
+    error
+  } = (0,client_.useQuery)(SINGLE_PRODUCT_QUERY, {
+    variables: {
+      id
+    }
+  });
+  const [updateProduct, {
+    data: updateData,
+    errror: updateError,
+    loading: updateLoading
+  }] = (0,client_.useMutation)(UPDATE_PRODUCT_MUTATION);
   const {
     inputs,
     handleChange,
     resetForm,
     clearForm
-  } = (0,useForm/* default */.Z)({
-    image: '',
-    name: 'sadik',
-    price: 5435,
-    description: 'A nice product'
+  } = (0,useForm/* default */.Z)(data === null || data === void 0 ? void 0 : data.Product);
+  if (loading) return /*#__PURE__*/jsx_runtime_.jsx("p", {
+    children: "Loading..."
   });
-  const [createProduct, {
-    loading,
-    error,
-    data
-  }] = (0,client_.useMutation)(CREATE_PRODUCT_MUTATION);
   return /*#__PURE__*/(0,jsx_runtime_.jsxs)(Form/* default */.Z, {
     onSubmit: async e => {
       e.preventDefault();
-      console.log(inputs); // Pass variables in the function call
+      const res = await updateProduct({
+        variables: {
+          id,
+          name: inputs.name,
+          description: inputs.description,
+          price: inputs.price
+        }
+      });
+      console.log(res); // Pass variables in the function call
 
-      const res = await createProduct({
+      /* const res = await createProduct({
         variables: {
           name: inputs.name,
           description: inputs.description,
           price: parseInt(inputs.price),
-          image: inputs.image
+          image: inputs.image,
         },
-        refetchQueries: [{
-          query: Products/* ALL_PRODUCTS_QUERY */.$
-        }]
+        refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
       });
       clearForm();
-      router_default().push({
-        pathname: `/products/${res.data.createProduct.id}`
-      });
+      Router.push({
+        pathname: `/products/${res.data.createProduct.id}`,
+      }); */
     },
     children: [/*#__PURE__*/jsx_runtime_.jsx(ErrorMessage/* default */.Z, {
-      error: error
+      error: error || updateError
     }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("fieldset", {
-      disabled: loading,
-      "aria-busy": loading,
+      disabled: updateLoading,
+      "aria-busy": updateLoading,
       children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("label", {
-        htmlFor: "image",
-        children: ["Image", /*#__PURE__*/jsx_runtime_.jsx("input", {
-          type: "file",
-          id: "image",
-          name: "image",
-          onChange: handleChange
-        })]
-      }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("label", {
         htmlFor: "name",
         children: ["Name", /*#__PURE__*/jsx_runtime_.jsx("input", {
           type: "text",
@@ -149,17 +154,21 @@ function CreateProduct() {
         })]
       }), /*#__PURE__*/jsx_runtime_.jsx("button", {
         type: "submit",
-        children: "+ Add Product"
+        children: "Update Product"
       })]
     })]
   });
 }
-;// CONCATENATED MODULE: ./pages/sell.js
+;// CONCATENATED MODULE: ./pages/update.js
 
 
-function SellPage() {
+function UpdatePage({
+  query
+}) {
   return /*#__PURE__*/jsx_runtime_.jsx("div", {
-    children: /*#__PURE__*/jsx_runtime_.jsx(CreateProduct, {})
+    children: /*#__PURE__*/jsx_runtime_.jsx(UpdateProduct, {
+      id: query.id
+    })
   });
 }
 
@@ -178,30 +187,6 @@ module.exports = require("@apollo/client");;
 
 "use strict";
 module.exports = require("graphql-tag");;
-
-/***/ }),
-
-/***/ 8417:
-/***/ (function(module) {
-
-"use strict";
-module.exports = require("next/dist/next-server/lib/router-context.js");;
-
-/***/ }),
-
-/***/ 2238:
-/***/ (function(module) {
-
-"use strict";
-module.exports = require("next/dist/next-server/lib/router/utils/get-asset-path-from-route.js");;
-
-/***/ }),
-
-/***/ 6731:
-/***/ (function(module) {
-
-"use strict";
-module.exports = require("next/router");;
 
 /***/ }),
 
@@ -236,7 +221,7 @@ module.exports = require("styled-components");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-var __webpack_exports__ = __webpack_require__.X(0, [664,424,847,72], function() { return __webpack_exec__(8380); });
+var __webpack_exports__ = __webpack_require__.X(0, [847,72], function() { return __webpack_exec__(5768); });
 module.exports = __webpack_exports__;
 
 })();
