@@ -1,6 +1,15 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import gql from 'graphql-tag';
 import PaginationStyles from './styles/PaginationStyles';
+
+const PAGINATION_QUERY = gql`
+  query PAGINATION_QUERY {
+    _allProductsMeta {
+      count
+    }
+  }
+`;
 
 export default function Pagination({ page }) {
   return (
