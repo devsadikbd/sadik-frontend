@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import gql from 'graphql-tag';
+import useQuery from '@apollo/client';
 import PaginationStyles from './styles/PaginationStyles';
 
 const PAGINATION_QUERY = gql`
@@ -10,8 +11,8 @@ const PAGINATION_QUERY = gql`
     }
   }
 `;
-
 export default function Pagination({ page }) {
+  const { error, loading, data } = useQuery(PAGINATION_QUERY);
   return (
     <PaginationStyles>
       <Head>
