@@ -1,21 +1,10 @@
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 (function() {
 var exports = {};
-exports.id = "pages/products";
-exports.ids = ["pages/products"];
+exports.id = 345;
+exports.ids = [345];
 exports.modules = {
 
-/***/ "@apollo/client":
-/*!*********************************!*\
-  !*** external "@apollo/client" ***!
-  \*********************************/
+/***/ 8074:
 /***/ (function(module) {
 
 "use strict";
@@ -23,10 +12,7 @@ module.exports = require("@apollo/client");;
 
 /***/ }),
 
-/***/ "graphql-tag":
-/*!******************************!*\
-  !*** external "graphql-tag" ***!
-  \******************************/
+/***/ 9875:
 /***/ (function(module) {
 
 "use strict";
@@ -34,10 +20,7 @@ module.exports = require("graphql-tag");;
 
 /***/ }),
 
-/***/ "../next-server/lib/router-context":
-/*!**************************************************************!*\
-  !*** external "next/dist/next-server/lib/router-context.js" ***!
-  \**************************************************************/
+/***/ 8417:
 /***/ (function(module) {
 
 "use strict";
@@ -45,10 +28,7 @@ module.exports = require("next/dist/next-server/lib/router-context.js");;
 
 /***/ }),
 
-/***/ "../next-server/lib/router/utils/get-asset-path-from-route":
-/*!**************************************************************************************!*\
-  !*** external "next/dist/next-server/lib/router/utils/get-asset-path-from-route.js" ***!
-  \**************************************************************************************/
+/***/ 2238:
 /***/ (function(module) {
 
 "use strict";
@@ -56,10 +36,7 @@ module.exports = require("next/dist/next-server/lib/router/utils/get-asset-path-
 
 /***/ }),
 
-/***/ "next/head":
-/*!****************************!*\
-  !*** external "next/head" ***!
-  \****************************/
+/***/ 701:
 /***/ (function(module) {
 
 "use strict";
@@ -67,21 +44,7 @@ module.exports = require("next/head");;
 
 /***/ }),
 
-/***/ "prop-types":
-/*!*****************************!*\
-  !*** external "prop-types" ***!
-  \*****************************/
-/***/ (function(module) {
-
-"use strict";
-module.exports = require("prop-types");;
-
-/***/ }),
-
-/***/ "react":
-/*!************************!*\
-  !*** external "react" ***!
-  \************************/
+/***/ 9297:
 /***/ (function(module) {
 
 "use strict";
@@ -89,21 +52,15 @@ module.exports = require("react");;
 
 /***/ }),
 
-/***/ "react/jsx-dev-runtime":
-/*!****************************************!*\
-  !*** external "react/jsx-dev-runtime" ***!
-  \****************************************/
+/***/ 5282:
 /***/ (function(module) {
 
 "use strict";
-module.exports = require("react/jsx-dev-runtime");;
+module.exports = require("react/jsx-runtime");;
 
 /***/ }),
 
-/***/ "styled-components":
-/*!************************************!*\
-  !*** external "styled-components" ***!
-  \************************************/
+/***/ 9914:
 /***/ (function(module) {
 
 "use strict";
@@ -118,7 +75,7 @@ module.exports = require("styled-components");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-var __webpack_exports__ = __webpack_require__.X(0, ["vendors-node_modules_next_link_js","pages_products_index_js"], function() { return __webpack_exec__("./pages/products/index.js"); });
+var __webpack_exports__ = __webpack_require__.X(0, [664,847,424,962], function() { return __webpack_exec__(7962); });
 module.exports = __webpack_exports__;
 
 })();
