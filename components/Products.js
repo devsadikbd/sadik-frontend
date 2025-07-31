@@ -47,3 +47,5 @@ export default function Products({ page }) {
     </div>
   );
 }
+
+export { ALL_PRODUCTS_QUERY };
