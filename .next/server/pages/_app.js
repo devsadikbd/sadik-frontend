@@ -56,17 +56,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var styl
 
 /***/ }),
 
-/***/ "./config.js":
-/*!*******************!*\
-  !*** ./config.js ***!
-  \*******************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"endpoint\": function() { return /* binding */ endpoint; },\n/* harmony export */   \"prodEndpoint\": function() { return /* binding */ prodEndpoint; },\n/* harmony export */   \"perPage\": function() { return /* binding */ perPage; }\n/* harmony export */ });\n// This is client side config only - don't put anything in here that shouldn't be public!\nconst endpoint = `http://localhost:3000/api/graphql`;\nconst prodEndpoint = `http://devsadik.me/api/graphql`;\nconst perPage = 2;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zaWNrLWZpdHMtZnJvbnRlbmQvLi9jb25maWcuanM/YTFiYyJdLCJuYW1lcyI6WyJlbmRwb2ludCIsInByb2RFbmRwb2ludCIsInBlclBhZ2UiXSwibWFwcGluZ3MiOiI7Ozs7OztBQUFBO0FBQ08sTUFBTUEsUUFBUSxHQUFJLG1DQUFsQjtBQUNBLE1BQU1DLFlBQVksR0FBSSxnQ0FBdEI7QUFDQSxNQUFNQyxPQUFPLEdBQUcsQ0FBaEIiLCJmaWxlIjoiLi9jb25maWcuanMuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBUaGlzIGlzIGNsaWVudCBzaWRlIGNvbmZpZyBvbmx5IC0gZG9uJ3QgcHV0IGFueXRoaW5nIGluIGhlcmUgdGhhdCBzaG91bGRuJ3QgYmUgcHVibGljIVxuZXhwb3J0IGNvbnN0IGVuZHBvaW50ID0gYGh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC9hcGkvZ3JhcGhxbGA7XG5leHBvcnQgY29uc3QgcHJvZEVuZHBvaW50ID0gYGh0dHA6Ly9kZXZzYWRpay5tZS9hcGkvZ3JhcGhxbGA7XG5leHBvcnQgY29uc3QgcGVyUGFnZSA9IDI7XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./config.js\n");
-
-/***/ }),
-
 /***/ "./lib/paginationField.js":
 /*!********************************!*\
   !*** ./lib/paginationField.js ***!
@@ -74,7 +63,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": function() { return /* binding */ PaginationField; }\n/* harmony export */ });\nfunction PaginationField() {\n  return {\n    keyArgs: false,\n\n    read(existing = [], {\n      args,\n      cache\n    }) {\n      console.log({\n        existing,\n        args,\n        cache\n      });\n    },\n\n    merge() {}\n\n  };\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zaWNrLWZpdHMtZnJvbnRlbmQvLi9saWIvcGFnaW5hdGlvbkZpZWxkLmpzPzk0NDAiXSwibmFtZXMiOlsiUGFnaW5hdGlvbkZpZWxkIiwia2V5QXJncyIsInJlYWQiLCJleGlzdGluZyIsImFyZ3MiLCJjYWNoZSIsImNvbnNvbGUiLCJsb2ciLCJtZXJnZSJdLCJtYXBwaW5ncyI6Ijs7OztBQUFlLFNBQVNBLGVBQVQsR0FBMkI7QUFDeEMsU0FBTztBQUNMQyxXQUFPLEVBQUUsS0FESjs7QUFFTEMsUUFBSSxDQUFDQyxRQUFRLEdBQUcsRUFBWixFQUFnQjtBQUFFQyxVQUFGO0FBQVFDO0FBQVIsS0FBaEIsRUFBaUM7QUFDbkNDLGFBQU8sQ0FBQ0MsR0FBUixDQUFZO0FBQUVKLGdCQUFGO0FBQVlDLFlBQVo7QUFBa0JDO0FBQWxCLE9BQVo7QUFDRCxLQUpJOztBQUtMRyxTQUFLLEdBQUcsQ0FBRTs7QUFMTCxHQUFQO0FBT0QiLCJmaWxlIjoiLi9saWIvcGFnaW5hdGlvbkZpZWxkLmpzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gUGFnaW5hdGlvbkZpZWxkKCkge1xuICByZXR1cm4ge1xuICAgIGtleUFyZ3M6IGZhbHNlLFxuICAgIHJlYWQoZXhpc3RpbmcgPSBbXSwgeyBhcmdzLCBjYWNoZSB9KSB7XG4gICAgICBjb25zb2xlLmxvZyh7IGV4aXN0aW5nLCBhcmdzLCBjYWNoZSB9KTtcbiAgICB9LFxuICAgIG1lcmdlKCkge30sXG4gIH07XG59XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./lib/paginationField.js\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": function() { return /* binding */ PaginationField; }\n/* harmony export */ });\n/* harmony import */ var _components_Pagination__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Pagination */ \"./components/Pagination.js\");\n\nfunction PaginationField() {\n  return {\n    keyArgs: false,\n\n    read(existing = [], {\n      args,\n      cache\n    }) {\n      var _data$_allProductsMet;\n\n      console.log({\n        existing,\n        args,\n        cache\n      });\n      const {\n        first,\n        skip\n      } = args;\n      const data = cache.readQuery({\n        query: _components_Pagination__WEBPACK_IMPORTED_MODULE_0__.PAGINATION_QUERY\n      });\n      const count = data === null || data === void 0 ? void 0 : (_data$_allProductsMet = data._allProductsMeta) === null || _data$_allProductsMet === void 0 ? void 0 : _data$_allProductsMet.count;\n      const page = skip / first + 1;\n    },\n\n    merge() {}\n\n  };\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zaWNrLWZpdHMtZnJvbnRlbmQvLi9saWIvcGFnaW5hdGlvbkZpZWxkLmpzPzk0NDAiXSwibmFtZXMiOlsiUGFnaW5hdGlvbkZpZWxkIiwia2V5QXJncyIsInJlYWQiLCJleGlzdGluZyIsImFyZ3MiLCJjYWNoZSIsImNvbnNvbGUiLCJsb2ciLCJmaXJzdCIsInNraXAiLCJkYXRhIiwicmVhZFF1ZXJ5IiwicXVlcnkiLCJQQUdJTkFUSU9OX1FVRVJZIiwiY291bnQiLCJfYWxsUHJvZHVjdHNNZXRhIiwicGFnZSIsIm1lcmdlIl0sIm1hcHBpbmdzIjoiOzs7OztBQUFBO0FBRWUsU0FBU0EsZUFBVCxHQUEyQjtBQUN4QyxTQUFPO0FBQ0xDLFdBQU8sRUFBRSxLQURKOztBQUVMQyxRQUFJLENBQUNDLFFBQVEsR0FBRyxFQUFaLEVBQWdCO0FBQUVDLFVBQUY7QUFBUUM7QUFBUixLQUFoQixFQUFpQztBQUFBOztBQUNuQ0MsYUFBTyxDQUFDQyxHQUFSLENBQVk7QUFBRUosZ0JBQUY7QUFBWUMsWUFBWjtBQUFrQkM7QUFBbEIsT0FBWjtBQUNBLFlBQU07QUFBRUcsYUFBRjtBQUFTQztBQUFULFVBQWtCTCxJQUF4QjtBQUNBLFlBQU1NLElBQUksR0FBR0wsS0FBSyxDQUFDTSxTQUFOLENBQWdCO0FBQzNCQyxhQUFLLEVBQUVDLG9FQUFnQkE7QUFESSxPQUFoQixDQUFiO0FBR0EsWUFBTUMsS0FBSyxHQUFHSixJQUFILGFBQUdBLElBQUgsZ0RBQUdBLElBQUksQ0FBRUssZ0JBQVQsMERBQUcsc0JBQXdCRCxLQUF0QztBQUNBLFlBQU1FLElBQUksR0FBR1AsSUFBSSxHQUFHRCxLQUFQLEdBQWUsQ0FBNUI7QUFDRCxLQVZJOztBQVdMUyxTQUFLLEdBQUcsQ0FBRTs7QUFYTCxHQUFQO0FBYUQiLCJmaWxlIjoiLi9saWIvcGFnaW5hdGlvbkZpZWxkLmpzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgUEFHSU5BVElPTl9RVUVSWSB9IGZyb20gJy4uL2NvbXBvbmVudHMvUGFnaW5hdGlvbic7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIFBhZ2luYXRpb25GaWVsZCgpIHtcbiAgcmV0dXJuIHtcbiAgICBrZXlBcmdzOiBmYWxzZSxcbiAgICByZWFkKGV4aXN0aW5nID0gW10sIHsgYXJncywgY2FjaGUgfSkge1xuICAgICAgY29uc29sZS5sb2coeyBleGlzdGluZywgYXJncywgY2FjaGUgfSk7XG4gICAgICBjb25zdCB7IGZpcnN0LCBza2lwIH0gPSBhcmdzO1xuICAgICAgY29uc3QgZGF0YSA9IGNhY2hlLnJlYWRRdWVyeSh7XG4gICAgICAgIHF1ZXJ5OiBQQUdJTkFUSU9OX1FVRVJZLFxuICAgICAgfSk7XG4gICAgICBjb25zdCBjb3VudCA9IGRhdGE/Ll9hbGxQcm9kdWN0c01ldGE/LmNvdW50O1xuICAgICAgY29uc3QgcGFnZSA9IHNraXAgLyBmaXJzdCArIDE7XG4gICAgfSxcbiAgICBtZXJnZSgpIHt9LFxuICB9O1xufVxuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./lib/paginationField.js\n");
 
 /***/ }),
 
@@ -164,6 +153,17 @@ module.exports = require("apollo-upload-client");;
 
 /***/ }),
 
+/***/ "graphql-tag":
+/*!******************************!*\
+  !*** external "graphql-tag" ***!
+  \******************************/
+/***/ (function(module) {
+
+"use strict";
+module.exports = require("graphql-tag");;
+
+/***/ }),
+
 /***/ "next-with-apollo":
 /*!***********************************!*\
   !*** external "next-with-apollo" ***!
@@ -194,6 +194,17 @@ module.exports = require("next/dist/next-server/lib/router-context.js");;
 
 "use strict";
 module.exports = require("next/dist/next-server/lib/router/utils/get-asset-path-from-route.js");;
+
+/***/ }),
+
+/***/ "next/head":
+/*!****************************!*\
+  !*** external "next/head" ***!
+  \****************************/
+/***/ (function(module) {
+
+"use strict";
+module.exports = require("next/head");;
 
 /***/ }),
 
@@ -261,16 +272,6 @@ module.exports = require("react/jsx-dev-runtime");;
 "use strict";
 module.exports = require("styled-components");;
 
-/***/ }),
-
-/***/ "?ca47":
-/*!******************************************!*\
-  !*** ./utils/resolve-rewrites (ignored) ***!
-  \******************************************/
-/***/ (function() {
-
-/* (ignored) */
-
 /***/ })
 
 };
@@ -280,7 +281,7 @@ module.exports = require("styled-components");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-var __webpack_exports__ = __webpack_require__.X(0, ["vendors-node_modules_next_link_js"], function() { return __webpack_exec__("./pages/_app.js"); });
+var __webpack_exports__ = __webpack_require__.X(0, ["vendors-node_modules_next_link_js","components_Pagination_js"], function() { return __webpack_exec__("./pages/_app.js"); });
 module.exports = __webpack_exports__;
 
 })();
