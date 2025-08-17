@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "next -p 7777",
+    "dev:clean": "rm -rf .next && next -p 7777",
     "build": "next build",
     "build:vercel": "./scripts/build.sh",
     "start": "next start -p 7777",
