@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import styled from 'styled-components';
-import Nav from './Nav';
-import Cart from './Cart';
-import Search from './Search';
+import Link from "next/link";
+import styled from "styled-components";
+import Nav from "./Nav";
+import Cart from "./Cart";
+import Search from "./Search";
 
 const Logo = styled.h1`
   background: red;
@@ -38,7 +38,7 @@ export default function Header() {
     <HeaderStyles>
       <div className="bar">
         <Logo>
-          <Link href="/">OMOR</Link>
+          <Link href="/">MD SADIK HASAN</Link>
         </Logo>
         <Nav />
       </div>

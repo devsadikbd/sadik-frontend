@@ -22,9 +22,24 @@ const CartItemStyles = styled.li`
     margin: 0;
   }
 `;
+
 function CartItem({ cartItem }) {
   const { product } = cartItem;
-  if (!product) return null;
+  if (!product) {
+    return (
+      <CartItemStyles>
+        <div />
+        <div>
+          <h3>Unavailable product</h3>
+          <p>
+            {cartItem.quantity} item
+            {cartItem.quantity === 1 ? '' : 's'} can&apos;t be loaded anymore.
+          </p>
+        </div>
+        <RemoveFromCart id={cartItem.id} />
+      </CartItemStyles>
+    );
+  }
   return (
     <CartItemStyles>
       <img
@@ -51,6 +66,8 @@ export default function Cart() {
   const { cartOpen, closeCart } = useCart();
   if (!me) return null;
 
+  const cart = me.cart || [];
+
   return (
     <CartStyles open={cartOpen}>
       <header>
@@ -60,12 +77,12 @@ export default function Cart() {
         </CloseButton>
       </header>
       <ul>
-        {me.cart.map((cartItem) => (
+        {cart.map((cartItem) => (
           <CartItem key={cartItem.id} cartItem={cartItem} />
         ))}
       </ul>
       <footer>
-        <p>{formatMoney(calcTotalPrice(me.cart))}</p>
+        <p>{formatMoney(calcTotalPrice(cart))}</p>
         <Checkout />
       </footer>
     </CartStyles>

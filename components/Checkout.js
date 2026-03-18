@@ -1,5 +1,7 @@
 'use client';
 
+import { gql } from 'graphql-tag';
+import { useMutation } from '@apollo/client';
 import {
   Elements,
   CardElement,
@@ -10,6 +12,9 @@ import { loadStripe } from '@stripe/stripe-js';
 import styled from 'styled-components';
 import { useState } from 'react';
 import SickButton from './styles/SickButton';
+import { CURRENT_USER_QUERY } from './User';
+import DisplayError from './ErrorMessage';
+import { useCart } from '../lib/cartState';
 
 const CheckoutFormStyles = styled.form`
   box-shadow: 0 1px 2px 2px rgba(0, 0, 0, 0.04);
@@ -24,11 +29,25 @@ const stripePromise = process.env.NEXT_PUBLIC_STRIPE_KEY
   ? loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY)
   : null;
 
+const CHECKOUT_MUTATION = gql`
+  mutation CHECKOUT_MUTATION($token: String!) {
+    checkout(token: $token) {
+      id
+      charge
+      total
+    }
+  }
+`;
+
 function CheckoutForm() {
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
+  const { closeCart } = useCart();
+  const [checkout, { error: checkoutError }] = useMutation(CHECKOUT_MUTATION, {
+    refetchQueries: [{ query: CURRENT_USER_QUERY }],
+  });
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -55,9 +74,16 @@ function CheckoutForm() {
         setError(stripeError);
       } else {
         console.log('Payment method created successfully:', paymentMethod);
+        await checkout({
+          variables: {
+            token: paymentMethod.id,
+          },
+        });
+        elements.getElement(CardElement)?.clear();
+        closeCart();
       }
     } catch (err) {
-      setError({ message: 'An unexpected error occurred. Please try again.' });
+      setError(err);
       console.error('Payment error:', err);
     }
 
@@ -77,7 +103,7 @@ function CheckoutForm() {
 
   return (
     <CheckoutFormStyles onSubmit={handleSubmit}>
-      {error && <p style={{ color: 'red' }}>{error.message}</p>}
+      <DisplayError error={error || checkoutError} />
       <CardElement
         options={{
           style: {

@@ -1,4 +1,4 @@
-import { useQuery, gql } from '@apollo/client';
+import { useQuery, gql } from "@apollo/client";
 
 export const CURRENT_USER_QUERY = gql`
   query {
@@ -28,8 +28,21 @@ export const CURRENT_USER_QUERY = gql`
 `;
 
 export function useUser() {
-  const { data } = useQuery(CURRENT_USER_QUERY);
-  return data?.authenticatedItem;
+  const { data } = useQuery(CURRENT_USER_QUERY, {
+    errorPolicy: "all",
+    returnPartialData: true,
+  });
+
+  const user = data?.authenticatedItem;
+  if (!user) return undefined;
+
+  return {
+    ...user,
+    cart:
+      user.cart?.filter(
+        (cartItem) => !cartItem?.product || typeof cartItem.product === "object",
+      ) || [],
+  };
 }
 
 // Keep the old export for backward compatibility
