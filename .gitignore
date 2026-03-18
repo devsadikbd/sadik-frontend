@@ -1,1 +1,4 @@
-.next/
+.next
+.vscode
+.env
+.env.local
