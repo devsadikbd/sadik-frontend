@@ -8,21 +8,7 @@ const transport = createTransport({
     pass: process.env.MAIL_PASS,
   },
 });
-function makeANiceEmail(text: string): string {
-  return `
-    <div style="
-    border: 1px solid black;
-    padding: 20px;
-    font-family: sans-serif;
-    line-height: 2;
-    font-size: 20px;
-    ">
-    <h2>Hello There please set your password</h2>
-    <p>${text}</p>
-    <p>😘, Sadik</p>
-    </div>
-  `;
-}
+
 export interface MailResponse {
   accepted?: string[] | null;
   rejected?: null[] | null;
@@ -45,7 +31,7 @@ export async function sendPasswordResetEmail(
 ): Promise<void> {
   const info = (await transport.sendMail({
     to,
-    from: 'devsadikbd@gmail.com',
+    from: 'admin@devsadik.me',
     subject: 'Hey gorib',
     html: makeANiceEmail(`
         <p>Your password is:</p>
